@@ -3,93 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página de Pruebas GTM</title>
-  
-  <!-- Aquí pegarás tu snippet del contenedor de Google Tag Manager -->
-  <!-- Ejemplo: -->
-  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXX');</script> -->
-
-  <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    h1 { color: #333; }
-    .card {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      max-width: 500px;
-    }
-    button {
-      padding: 10px 16px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    input {
-      padding: 10px;
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <title>Site de Pruebas GTM – Nivel Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-white shadow-md p-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">GTM Test Pro</h1>
+      <nav class="space-x-6 text-lg font-medium">
+        <a href="#home" class="hover:text-blue-600">Inicio</a>
+        <a href="#productos" class="hover:text-blue-600">Productos</a>
+        <a href="#form" class="hover:text-blue-600">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-<body>
-  <h1>Página de Pruebas GTM</h1>
-  <p>Usa esta página para probar diferentes eventos de GA4, GTM, dataLayer y más.</p>
+  <!-- HERO -->
+  <section id="home" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24 text-center">
+    <h2 class="text-5xl font-extrabold mb-4">Sitio de pruebas GTM</h2>
+    <p class="text-xl mb-8">Interacciones reales, diseño pro y todo listo para tus eventos.</p>
+    <button class="bg-white text-blue-700 px-8 py-3 text-lg rounded-lg shadow hover:bg-gray-200" id="btn-hero-cta">Probar Evento</button>
+  </section>
 
-  <!-- EJEMPLO DE EVENTO: ADD TO CART -->
-  <div class="card">
-    <h3>Producto Demo</h3>
-    <p>Precio: $50</p>
-    <button onclick="addToCart()">Agregar al carrito</button>
-  </div>
+  <!-- PRODUCTOS -->
+  <section id="productos" class="max-w-6xl mx-auto py-20">
+    <h3 class="text-3xl font-bold mb-10 text-center">Productos Destacados</h3>
 
-  <!-- EJEMPLO: SEARCH -->
-  <div class="card">
-    <h3>Buscador</h3>
-    <input type="text" id="searchInput" placeholder="Buscar productos..." />
-    <button onclick="searchEvent()">Buscar</button>
-  </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="101">
+        <img src="https://picsum.photos/300?random=1" class="rounded mb-4" />
+        <h4 class="text-xl font-semibold mb-2">Producto Alpha</h4>
+        <p class="mb-4">Un artículo para pruebas de eventos.</p>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+      </div>
 
-  <!-- EJEMPLO: FORM SUBMIT -->
-  <div class="card">
-    <h3>Formulario de contacto</h3>
-    <input type="text" id="nameInput" placeholder="Tu nombre" />
-    <input type="email" id="emailInput" placeholder="Tu correo" />
-    <button onclick="sendForm()">Enviar</button>
-  </div>
+      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="102">
+        <img src="https://picsum.photos/300?random=2" class="rounded mb-4" />
+        <h4 class="text-xl font-semibold mb-2">Producto Beta</h4>
+        <p class="mb-4">Ideal para eventos de ecommerce.</p>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="103">
+        <img src="https://picsum.photos/300?random=3" class="rounded mb-4" />
+        <h4 class="text-xl font-semibold mb-2">Producto Gamma</h4>
+        <p class="mb-4">Perfecto para tests avanzados.</p>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="form" class="bg-white py-20 shadow-inner">
+    <div class="max-w-xl mx-auto">
+      <h3 class="text-3xl font-bold mb-10 text-center">Formulario de contacto</h3>
+      <form id="contact-form" class="space-y-6 bg-gray-50 p-8 rounded-xl shadow">
+        <input type="text" id="name" placeholder="Tu nombre" class="w-full p-3 rounded border" />
+        <input type="email" id="email" placeholder="Tu correo" class="w-full p-3 rounded border" />
+        <textarea id="message" placeholder="Tu mensaje" class="w-full p-3 rounded border h-32"></textarea>
+        <button class="bg-indigo-600 text-white w-full py-3 rounded-lg" id="submit-form">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="text-center py-10 text-gray-500">Hecho para pruebas GTM – 2025</footer>
 
   <script>
-    function addToCart() {
-      dataLayer.push({
-        event: "add_to_cart",
-        item_name: "Producto Demo",
-        price: 50
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const card = e.target.closest('.product-card');
+        const id = card.getAttribute('data-product-id');
+        dataLayer.push({ event: 'add_to_cart', product_id: id });
       });
-      alert("Evento add_to_cart enviado");
-    }
+    });
 
-    function searchEvent() {
-      const query = document.getElementById("searchInput").value;
-      dataLayer.push({
-        event: "search",
-        search_term: query
-      });
-      alert("Evento search enviado");
-    }
+    document.getElementById('btn-hero-cta').addEventListener('click', () => {
+      dataLayer.push({ event: 'hero_cta_click' });
+    });
 
-    function sendForm() {
-      const name = document.getElementById("nameInput").value;
-      const email = document.getElementById("emailInput").value;
-      dataLayer.push({
-        event: "form_submit",
-        user_name: name,
-        user_email: email
-      });
-      alert("Formulario enviado (evento form_submit)");
-    }
+    document.getElementById('submit-form').addEventListener('click', e => {
+      e.preventDefault();
+      dataLayer.push({ event: 'form_submit' });
+    });
   </script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  </script>
 </body>
 </html>

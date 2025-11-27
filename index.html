@@ -18,6 +18,26 @@
     </div>
   </header>
 
+<!-- Rotating Promo Banner -->
+<section id="promo-banner" class="w-full py-4 text-center text-white font-bold text-xl transition-all duration-500 bg-gradient-to-r from-amber-500 to-red-600">
+  <p id="promo-text">🔥 Black Friday: Descuentos del 70% en pruebas GTM 🔥</p>
+</section>
+
+<script>
+const promos = [
+  "🔥 Black Friday: Descuentos del 70% en pruebas GTM 🔥",
+  "🎄 Navidad: Activa tus eventos con magia (literal) 🎄",
+  "🎃 Halloween: Eventos que dan miedo… de lo bien que funcionan 👻",
+  "💘 San Valentín: Ama tus datos como nunca 💘",
+  "👨‍👧‍👦 Día del Padre/Madre: Regala un evento bien configurado 💝"
+];
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % promos.length;
+  document.getElementById('promo-text').textContent = promos[i];
+}, 4000);
+</script>
+
   <!-- HERO -->
   <section id="home" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24 text-center">
     <h2 class="text-5xl font-extrabold mb-4">Sitio de pruebas GTM</h2>
@@ -90,5 +110,38 @@
   <script>
     window.dataLayer = window.dataLayer || [];
   </script>
+<!-- ABOUT SECTION -->
+<section id="about" class="py-24 bg-white text-gray-800 max-w-4xl mx-auto px-6">
+  <h2 class="text-4xl font-bold mb-6 text-center">Sobre Este Proyecto</h2>
+  <p class="text-lg leading-relaxed text-center mb-8">
+    Este sitio fue creado como un espacio de pruebas profesionales para Google Tag Manager, 
+    pensado para simular interacciones reales, disparar eventos complejos y analizar flujos 
+    completos de tracking como un Pro. Aquí podrás practicar, romper cosas y aprender sin miedo. 🚀
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+      <h3 class="font-bold text-xl mb-2">🔧 Pruebas GTM Reales</h3>
+      <p>Botones, formularios, banners dinámicos, tracking de scroll, interacciones y más.</p>
+    </div>
+
+    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+      <h3 class="font-bold text-xl mb-2">💼 ¿Quieres Trabajar Conmigo?</h3>
+      <p>Si eres recruiter o empresa, este sitio demuestra mis habilidades técnicas, orden, 
+      lógica y capacidad para implementar soluciones de analítica profesional.</p>
+    </div>
+
+    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+      <h3 class="font-bold text-xl mb-2">📊 DataLayer Personalizado</h3>
+      <p>Ideal para revisar en consola, validar objetos, probar pushes y simular funnels.</p>
+    </div>
+
+    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
+      <h3 class="font-bold text-xl mb-2">🚀 Expansión Continua</h3>
+      <p>Este sitio seguirá creciendo con más componentes, test, secciones y escenarios reales.</p>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>

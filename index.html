@@ -3,145 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site de Pruebas GTM – Nivel Pro</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <title>DataGisto — Demo Site</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-white shadow-md p-6 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">GTM Test Pro</h1>
-      <nav class="space-x-6 text-lg font-medium">
-        <a href="#home" class="hover:text-blue-600">Inicio</a>
-        <a href="#productos" class="hover:text-blue-600">Productos</a>
-        <a href="#form" class="hover:text-blue-600">Contacto</a>
-      </nav>
-    </div>
-  </header>
 
-<!-- Rotating Promo Banner -->
-<section id="promo-banner" class="w-full py-4 text-center text-white font-bold text-xl transition-all duration-500 bg-gradient-to-r from-amber-500 to-red-600">
-  <p id="promo-text">🔥 Black Friday: Descuentos del 70% en pruebas GTM 🔥</p>
-</section>
-
-<script>
-const promos = [
-  "🔥 Black Friday: Descuentos del 70% en pruebas GTM 🔥",
-  "🎄 Navidad: Activa tus eventos con magia (literal) 🎄",
-  "🎃 Halloween: Eventos que dan miedo… de lo bien que funcionan 👻",
-  "💘 San Valentín: Ama tus datos como nunca 💘",
-  "👨‍👧‍👦 Día del Padre/Madre: Regala un evento bien configurado 💝"
-];
-let i = 0;
-setInterval(() => {
-  i = (i + 1) % promos.length;
-  document.getElementById('promo-text').textContent = promos[i];
-}, 4000);
-</script>
+<body class="bg-gray-100 text-gray-900">
 
   <!-- HERO -->
-  <section id="home" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24 text-center">
-    <h2 class="text-5xl font-extrabold mb-4">Sitio de pruebas GTM</h2>
-    <p class="text-xl mb-8">Interacciones reales, diseño pro y todo listo para tus eventos.</p>
-    <button class="bg-white text-blue-700 px-8 py-3 text-lg rounded-lg shadow hover:bg-gray-200" id="btn-hero-cta">Probar Evento</button>
+  <header class="w-full bg-black text-white py-20 px-6 md:px-20 text-center">
+    <h1 class="text-5xl font-extrabold mb-6">Bienvenido a DataGisto</h1>
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+      Una experiencia creada para probar eventos, analítica, GTM y todo lo que necesites.
+    </p>
+    <button class="mt-6 bg-white text-black px-6 py-3 rounded-xl font-semibold">
+      Explorar Más
+    </button>
+  </header>
+
+  <!-- BANNER DINÁMICO -->
+  <section class="w-full py-6">
+    <div id="promoBanner" class="w-full text-center py-4 text-xl font-bold text-white rounded-lg mx-auto max-w-4xl transition-all duration-500"></div>
   </section>
+
+  <script>
+    const banners = [
+      { text: "🔥 Black Friday - 70% OFF en todo 🔥", color: "bg-red-600" },
+      { text: "🎄 Navidad - Ofertas especiales 🎄", color: "bg-green-600" },
+      { text: "🎃 Halloween - Promos de miedo 🎃", color: "bg-orange-600" },
+      { text: "💘 San Valentín - Especial parejas 💘", color: "bg-pink-600" },
+      { text: "👨‍👩‍👧 Día de la Familia - Regalos únicos", color: "bg-blue-600" },
+    ];
+    let index = 0;
+
+    function rotateBanner() {
+      const banner = document.getElementById("promoBanner");
+      banner.className = `text-white py-4 text-xl font-bold rounded-lg mx-auto max-w-4xl ${banners[index].color}`;
+      banner.innerText = banners[index].text;
+      index = (index + 1) % banners.length;
+    }
+    rotateBanner();
+    setInterval(rotateBanner, 4000);
+  </script>
 
   <!-- PRODUCTOS -->
-  <section id="productos" class="max-w-6xl mx-auto py-20">
-    <h3 class="text-3xl font-bold mb-10 text-center">Productos Destacados</h3>
+  <section class="w-full py-20 px-6 md:px-20">
+    <h2 class="text-4xl font-bold mb-12 text-center">Productos Destacados</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="101">
-        <img src="https://picsum.photos/300?random=1" class="rounded mb-4" />
-        <h4 class="text-xl font-semibold mb-2">Producto Alpha</h4>
-        <p class="mb-4">Un artículo para pruebas de eventos.</p>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+      <div class="bg-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+        <img src="https://via.placeholder.com/400x250" class="rounded-xl mb-4" />
+        <h3 class="font-semibold text-xl mb-2">DataGisto Analytics Pro</h3>
+        <p class="text-gray-600 mb-3">Dashboard avanzado con IA integrada.</p>
+        <button class="bg-black text-white w-full py-2 rounded-xl">Comprar</button>
       </div>
 
-      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="102">
-        <img src="https://picsum.photos/300?random=2" class="rounded mb-4" />
-        <h4 class="text-xl font-semibold mb-2">Producto Beta</h4>
-        <p class="mb-4">Ideal para eventos de ecommerce.</p>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+      <div class="bg-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+        <img src="https://via.placeholder.com/400x250" class="rounded-xl mb-4" />
+        <h3 class="font-semibold text-xl mb-2">IA Generator Studio</h3>
+        <p class="text-gray-600 mb-3">Genera imágenes, textos y flujos con IA.</p>
+        <button class="bg-black text-white w-full py-2 rounded-xl">Comprar</button>
       </div>
 
-      <div class="bg-white rounded-xl shadow p-6 product-card" data-product-id="103">
-        <img src="https://picsum.photos/300?random=3" class="rounded mb-4" />
-        <h4 class="text-xl font-semibold mb-2">Producto Gamma</h4>
-        <p class="mb-4">Perfecto para tests avanzados.</p>
-        <button class="bg-blue-600 text-white px-4 py-2 rounded w-full add-to-cart">Agregar al carrito</button>
+      <div class="bg-white p-6 rounded-2xl shadow-xl hover:scale-105 transition">
+        <img src="https://via.placeholder.com/400x250" class="rounded-xl mb-4" />
+        <h3 class="font-semibold text-xl mb-2">Tag Manager Pro Tools</h3>
+        <p class="text-gray-600 mb-3">Scripts avanzados para medición.</p>
+        <button class="bg-black text-white w-full py-2 rounded-xl">Comprar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="w-full bg-white py-16 px-6 md:px-20">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">Sobre Nosotros</h2>
+      <p class="text-lg text-gray-700 leading-relaxed mb-10">
+        En <strong>DataGisto</strong> combinamos estrategia, tecnología e inteligencia artificial para crear experiencias digitales que realmente generan impacto. 
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="bg-gray-100 shadow-md p-8 rounded-2xl">
+          <h3 class="text-xl font-semibold mb-3">Nuestra Misión</h3>
+          <p class="text-gray-700">Empoderar a las marcas mediante soluciones basadas en datos e IA.</p>
+        </div>
+        <div class="bg-gray-100 shadow-md p-8 rounded-2xl">
+          <h3 class="text-xl font-semibold mb-3">Nuestra Cultura</h3>
+          <p class="text-gray-700">Innovación, transparencia y creatividad.</p>
+        </div>
+        <div class="bg-gray-100 shadow-md p-8 rounded-2xl">
+          <h3 class="text-xl font-semibold mb-3">Nuestro Futuro</h3>
+          <p class="text-gray-700">Integrar IA generativa en todos nuestros procesos.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FORMULARIO -->
-  <section id="form" class="bg-white py-20 shadow-inner">
-    <div class="max-w-xl mx-auto">
-      <h3 class="text-3xl font-bold mb-10 text-center">Formulario de contacto</h3>
-      <form id="contact-form" class="space-y-6 bg-gray-50 p-8 rounded-xl shadow">
-        <input type="text" id="name" placeholder="Tu nombre" class="w-full p-3 rounded border" />
-        <input type="email" id="email" placeholder="Tu correo" class="w-full p-3 rounded border" />
-        <textarea id="message" placeholder="Tu mensaje" class="w-full p-3 rounded border h-32"></textarea>
-        <button class="bg-indigo-600 text-white w-full py-3 rounded-lg" id="submit-form">Enviar</button>
-      </form>
+  <!-- TRABAJA CON NOSOTROS -->
+  <section class="w-full bg-black text-white py-20 px-6 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Trabaja con Nosotros</h2>
+        <p class="text-lg text-gray-300">Únete al equipo que está construyendo el futuro con IA.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div class="bg-white text-black p-8 rounded-2xl shadow-xl">
+          <h3 class="text-2xl font-semibold mb-3">Analista de Datos</h3>
+          <p class="text-gray-700 mb-4">Explora datos y genera insights.</p>
+          <button class="bg-black text-white py-2 px-4 rounded-xl w-full">Aplicar</button>
+        </div>
+
+        <div class="bg-white text-black p-8 rounded-2xl shadow-xl">
+          <h3 class="text-2xl font-semibold mb-3">Especialista en IA</h3>
+          <p class="text-gray-700 mb-4">Automatización y modelos generativos.</p>
+          <button class="bg-black text-white py-2 px-4 rounded-xl w-full">Aplicar</button>
+        </div>
+
+        <div class="bg-white text-black p-8 rounded-2xl shadow-xl">
+          <h3 class="text-2xl font-semibold mb-3">Diseñador Digital</h3>
+          <p class="text-gray-700 mb-4">Experiencias visuales y motion.</p>
+          <button class="bg-black text-white py-2 px-4 rounded-xl w-full">Aplicar</button>
+        </div>
+
+      </div>
+
+      <div class="mt-20 bg-gradient-to-r from-purple-700 to-pink-600 p-12 rounded-3xl shadow-xl text-center">
+        <h3 class="text-3xl font-bold mb-4">IA en Todo lo que Hacemos</h3>
+        <p class="text-lg text-white/90 max-w-3xl mx-auto mb-6">
+          Creamos <strong>DataGisto AI Lab</strong>, un espacio donde combinamos creatividad humana con IA generativa.
+        </p>
+        <button class="bg-white text-black font-semibold py-3 px-6 rounded-xl">Quiero Saber Más</button>
+      </div>
+
     </div>
   </section>
 
-  <footer class="text-center py-10 text-gray-500">Hecho para pruebas GTM – 2025</footer>
+  <!-- SERVICIOS -->
+  <section class="w-full bg-white py-20 px-6 md:px-20">
+    <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
 
-  <script>
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const card = e.target.closest('.product-card');
-        const id = card.getAttribute('data-product-id');
-        dataLayer.push({ event: 'add_to_cart', product_id: id });
-      });
-    });
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-    document.getElementById('btn-hero-cta').addEventListener('click', () => {
-      dataLayer.push({ event: 'hero_cta_click' });
-    });
+      <div class="bg-gray-100 p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-3">Analítica Avanzada</h3>
+        <p class="text-gray-600">Implementación de dashboards, BI y BigQuery.</p>
+      </div>
 
-    document.getElementById('submit-form').addEventListener('click', e => {
-      e.preventDefault();
-      dataLayer.push({ event: 'form_submit' });
-    });
-  </script>
+      <div class="bg-gray-100 p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-3">Automatización con IA</h3>
+        <p class="text-gray-600">Modelos predictivos, generación y optimización.</p>
+      </div>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-  </script>
-<!-- ABOUT SECTION -->
-<section id="about" class="py-24 bg-white text-gray-800 max-w-4xl mx-auto px-6">
-  <h2 class="text-4xl font-bold mb-6 text-center">Sobre Este Proyecto</h2>
-  <p class="text-lg leading-relaxed text-center mb-8">
-    Este sitio fue creado como un espacio de pruebas profesionales para Google Tag Manager, 
-    pensado para simular interacciones reales, disparar eventos complejos y analizar flujos 
-    completos de tracking como un Pro. Aquí podrás practicar, romper cosas y aprender sin miedo. 🚀
-  </p>
+      <div class="bg-gray-100 p-8 rounded-2xl shadow-lg">
+        <h3 class="text-2xl font-bold mb-3">Marketing & Growth</h3>
+        <p class="text-gray-600">Optimización, tracking, CRO y funnels.</p>
+      </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl mb-2">🔧 Pruebas GTM Reales</h3>
-      <p>Botones, formularios, banners dinámicos, tracking de scroll, interacciones y más.</p>
     </div>
+  </section>
 
-    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl mb-2">💼 ¿Quieres Trabajar Conmigo?</h3>
-      <p>Si eres recruiter o empresa, este sitio demuestra mis habilidades técnicas, orden, 
-      lógica y capacidad para implementar soluciones de analítica profesional.</p>
-    </div>
+  <!-- CONTACTO -->
+  <section class="w-full bg-gray-900 text-white py-20 px-6 md:px-20">
+    <h2 class="text-4xl font-bold text-center mb-10">Contacto</h2>
 
-    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl mb-2">📊 DataLayer Personalizado</h3>
-      <p>Ideal para revisar en consola, validar objetos, probar pushes y simular funnels.</p>
-    </div>
+    <form class="max-w-3xl mx-auto bg-gray-800 p-10 rounded-2xl shadow-xl">
+      <div class="mb-6">
+        <label class="block mb-2 font-semibold">Nombre</label>
+        <input class="w-full p-3 rounded-lg text-black" />
+      </div>
 
-    <div class="p-6 border rounded-xl shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl mb-2">🚀 Expansión Continua</h3>
-      <p>Este sitio seguirá creciendo con más componentes, test, secciones y escenarios reales.</p>
-    </div>
-  </div>
-</section>
+      <div class="mb-6">
+        <label class="block mb-2 font-semibold">Correo</label>
+        <input class="w-full p-3 rounded-lg text-black" />
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-2 font-semibold">Mensaje</label>
+        <textarea class="w-full p-3 rounded-lg h-32 text-black"></textarea>
+      </div>
+
+      <button class="w-full bg-white text-black py-3 rounded-xl font-bold">Enviar</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-black text-white py-6 text-center">
+    © 2025 DataGisto — Creado para pruebas de GTM, IA y analítica.
+  </footer>
 
 </body>
 </html>
